@@ -1,3 +1,6 @@
+NAME = tbgo
+VERSION = 0.0.1
+
 build:
 	@cd cmd/tbgo && go build -o bin/TBGo
 
@@ -11,5 +14,7 @@ test:
 proto:
 	protoc proto/*.proto --go_out=./proto/generated --go-grpc_out=./proto/generated
 
+docker_build:
+	docker build -t $(NAME):$(VERSION) .
 
 .PHONY: proto

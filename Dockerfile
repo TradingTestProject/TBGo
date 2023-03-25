@@ -1,4 +1,5 @@
 ARG GO_VERSION=1.20.2
+ARG APP=tbgo
 
 FROM golang:${GO_VERSION}-alpine as builder
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
@@ -6,7 +7,7 @@ WORKDIR /build
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o app ./cmd/tbgo/
+RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o app ./cmd/{APP}/
 
 FROM scratch
 COPY --from=builder /etc/group /etc/passwd /etc/

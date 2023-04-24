@@ -4,7 +4,6 @@ go 1.20
 
 require (
 	github.com/go-co-op/gocron v1.18.1
-	github.com/liderman/traderstack v0.0.0-20220717230652-74f9a325e4bf
 	github.com/shopspring/decimal v1.3.1
 	go.uber.org/zap v1.24.0
 	google.golang.org/grpc v1.52.3
